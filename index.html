@@ -102,7 +102,7 @@
     <div class="container">
         <div class="form-container" id="login-form">
             <h1>Login</h1>
-            <form id="form" method="POST" onsubmit="auth()" action="">
+            <form id="form" method="POST" action="">
                 <label for="username">Email</label>
                 <input type="email" id="email" name="username">
                 <label for="password">Password</label>
@@ -135,7 +135,7 @@
         function changeWindow(){
             if(window.location.href === "https://fawaaz-coder.github.io/taskeasy/"){
                 newWindowLocation = "https://fawaaz-coder.github.io/taskeasy/main.html";
-                window.location.href = newWindowLocation;
+                window.open(newWindowLocation);
             }
             else{
                 alert("Error in switching page");
