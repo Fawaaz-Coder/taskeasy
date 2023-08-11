@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+        * {
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #222;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            width: 600px;
+            margin: 0 auto;
+            padding: 50px;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+            color: #b38bff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        input {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #555;
+        }
+
+        #signupBtn {
+            padding: 10px;
+            background-color: #b38bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        #signupBtn:hover {
+            background-color: #8c5fb2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #b38bff;
+            font-size: 18px;
+            transition: color 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: #8c5fb2;
+        }
+
+        p {
+            text-align: center;
+            margin: 8px;
+        }
+    </style>
+    <title>SignUp - TaskEasy</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container" id="login-form">
+            <h1>Signup</h1>
+            <form id="form" method="POST" action="">
+                <label for="username">Email</label>
+                <input type="email" id="email" name="username">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+                <button type="submit" class="sub" onclick="auth()" id="signupBtn">Signup</button>
+                <p>Already a user ? <a href="index.html">Login Now</a></p>
+                <p id="empttxt"></p>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+
+        // Swicthing to another page after successfully logging in
+
+        function auth() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            if (email === "fawaazshaikh2004@gmail.com" && password === "a") {
+                window.location.assign("main.html");
+                alert("Logged in successfully");
+            }
+            else {
+                alert("Some error occurred");
+            }
+        }
+    </script>
+</body>
+
+</html>
