@@ -8,7 +8,6 @@ body {
     font-family: 'Rubik', sans-serif;
     background-color: #cad1df;
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 36%, rgba(0, 212, 255, 1) 100%);
-    /* background-image: linear-gradient(rgb(55, 55, 183), rgb(166, 23, 23)); */
     height: 100vh;
     user-select: none;
 }
