@@ -6,8 +6,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Rubik', sans-serif;
-    background-color: #cad1df;
+    /* background-color: #cad1df; */
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 36%, rgba(0, 212, 255, 1) 100%);
+    /* background-image: linear-gradient(to right, rgb(55, 55, 183), rgb(166, 23, 23)); */
     height: 100vh;
     user-select: none;
 }
@@ -23,7 +24,7 @@ body {
 }
 
 .container h1 {
-    font-family: 'Montserrat', sans-serif:
+    font-family: 'Montserrat', sans-serif;
     color: #f30072;
 }
 
@@ -101,11 +102,11 @@ ul {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    color: #FFFFFF;
+    color: #171d1a;
 }
 
 ul li {
-    background-color: #000000;
+    background-color: #e4a300;
     padding: 15px;
     border-radius: 6px;
     flex-grow: 1;
@@ -121,6 +122,6 @@ ul li:hover {
 
 footer {
     text-align: center;
+    color: white;
     padding-bottom: 8px;
-    color: #d3d3d3
 }
