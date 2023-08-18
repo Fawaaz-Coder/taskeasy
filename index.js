@@ -12,6 +12,11 @@
 const inputFieldEl = document.getElementById("input-field");
 const addButtonEl = document.getElementById("add-btn");
 const shoppingListEl = document.getElementById("shopping-list");
+const logoutBtn = document.getElementById("logout-btn");
+
+logoutBtn.addEventListener("click", function() {
+    window.location.assign("index.html");
+});
 
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value;
@@ -28,6 +33,8 @@ addButtonEl.addEventListener("click", function() {
         shoppingListEl.innerHTML = "Empty tasks are not allowed"
     }
 })
+
+
 
 onValue(shoppingListInDB, function(snapshot) {
     if(snapshot.exists()){
