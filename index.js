@@ -16,9 +16,17 @@ const shoppingListEl = document.getElementById("shopping-list");
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value;
 
+    if(inputValue != ""){
+
     push(shoppingListInDB, inputValue)
 
+
     clearInputFieldEl();
+
+    }
+    else{
+        shoppingListEl.innerHTML = "Empty tasks are not allowed"
+    }
 })
 
 onValue(shoppingListInDB, function(snapshot) {
