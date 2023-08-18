@@ -101,11 +101,11 @@ ul {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    color: #171d1a;
+    color: #FFFFFF;
 }
 
 ul li {
-    background-color: #e4a300;
+    background-color: #000000;
     padding: 15px;
     border-radius: 6px;
     flex-grow: 1;
