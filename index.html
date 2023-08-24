@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="main.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id"
+        content="1003741300959-79a59ennvuce6qsaij7v9los3i0riuki.apps.googleusercontent.com">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
@@ -107,13 +109,65 @@
                 <input type="email" id="email" name="username">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password">
-                <input type="submit" class="sub" id="loginBtn" onclick="auth(); changeWindow();" value="Login">
+                <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+                <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                    data-login_uri="https://fawaaz-coder.github.io" data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
+                    data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left">
+                </div>
+                <script>
+                    function handleCredentialResponse(response) {
+                        console.log("Encoded JWT ID token: " + response.credential);
+                    }
+                    window.onload = function () {
+                        google.accounts.id.initialize({
+                            client_id: "1003741300959-5rke7h7unf9olispeirrofkg90bh5208.apps.googleusercontent.com",
+                            callback: handleCredentialResponse
+                        });
+                        google.accounts.id.renderButton(
+                            document.getElementById("buttonDiv"),
+                            { theme: "outline", size: "large" }  // customization attributes
+                        );
+                        google.accounts.id.prompt(); // also display the One Tap dialog
+                    }
+                </script>
+                <script>
+                    google.accounts.id.renderButton(
+                        document.getElementById("buttonDiv"),
+                        { locale: "fr" }
+                    );
+                </script>
+                <!-- <input type="submit" class="sub" id="loginBtn" onclick="auth(); changeWindow();"
+                    value="Login with Google">  -->
                 <p>Not a user ? <a href="signup.html">Sign-Up Now</a></p>
             </form>
         </div>
     </div>
 
     <!-- <script src="signup-login-auth.js" type="module"></script> -->
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCoo0zdQQFH2vqXOS69JiVx0Sde6uhmf0Q",
+            authDomain: "taskapp-a5c38.firebaseapp.com",
+            databaseURL: "https://taskapp-a5c38-default-rtdb.firebaseio.com",
+            projectId: "taskapp-a5c38",
+            storageBucket: "taskapp-a5c38.appspot.com",
+            messagingSenderId: "1003741300959",
+            appId: "1:1003741300959:web:db7b9a06696eacf9b2016a"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+    </script>
 
     <script>
 
@@ -132,12 +186,12 @@
             }
         }
 
-        function changeWindow(){
-            if(window.location.href === "https://fawaaz-coder.github.io/taskeasy/"){
+        function changeWindow() {
+            if (window.location.href === "https://fawaaz-coder.github.io/taskeasy/") {
                 newWindowLocation = "https://fawaaz-coder.github.io/taskeasy/main.html";
                 window.open(newWindowLocation);
             }
-            else{
+            else {
                 alert("Error in switching page");
             }
         }
