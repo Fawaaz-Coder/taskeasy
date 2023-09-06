@@ -115,8 +115,9 @@
 "
                     data-login_uri="https://fawaaz-coder.github.io/taskeasy" data-auto_prompt="false">
                 </div>
-                <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
-                    data-text="sign_in_with"  data-redirecturi="https://fawaaz-coder.github.io/taskeasy/main.html" data-shape="rectangular" data-logo_alignment="left">
+                <div class="g_id_signin" data-type="standard" data-size="large" style="margin-bottom:
+                    10px;" data-theme="outline"
+                    data-text="sign_in_with" onclick="changeWindow(); data-redirecturi="https://fawaaz-coder.github.io/taskeasy/main.html" data-shape="rectangular" data-logo_alignment="left">
                 </div>
                 <script>
                     function handleCredentialResponse(response) {
@@ -140,8 +141,10 @@
                         { locale: "fr" }
                     );
                 </script>
-                <!-- <input type="submit" class="sub" id="loginBtn" onclick="auth(); changeWindow();"
-                    value="Login with Google">  -->
+                
+                 <input type="submit" class="sub" id="loginBtn" onclick="auth(); changeWindow();"
+                    value="Manual Login">  
+                
                 <p>Not a user ? <a href="signup.html">Sign-Up Now</a></p>
             </form>
         </div>
