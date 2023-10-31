@@ -108,90 +108,91 @@
                 <label for="username">Email</label>
                 <input type="email" id="email" name="username">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password"> 
-               <!--  <div id="my-signin2" data-redirecturi="https://fawaaz-coder.github.io/taskeasy/" data-scope="https://www.googleapis.com/auth/plus.login"></div>
-  <script>
-    function onSuccess(googleUser) {
-      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-    }
-    function onFailure(error) {
-      console.log(error);
-    }
-    function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSuccess,
-        'onfailure': onFailure
-      });
-    }
-  </script>
+                <input type="password" id="password" name="password">
+                <div id="my-signin2"></div>
 
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script> -->
+                <script>
+                    function onSuccess(googleUser) {
+                      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                    }
+                    function onFailure(error) {
+                      console.log(error);
+                    }
+                    function renderButton() {
+                      gapi.signin2.render('my-signin2', {
+                        'scope': 'profile email',
+                        'width': 240,
+                        'height': 50,
+                        'longtitle': true,
+                        'theme': 'dark',
+                        'onsuccess': onSuccess,
+                        'onfailure': onFailure
+                      });
+                    }
+                  </script>
+
+                <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 </body>
 
 
 
-                <!-- Testing new JavaScript for login system with gooogle -->
+<!-- Testing new JavaScript for login system with gooogle -->
 
-                 <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
-        import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCoo0zdQQFH2vqXOS69JiVx0Sde6uhmf0Q",
-            authDomain: "taskapp-a5c38.firebaseapp.com",
-            databaseURL: "https://taskapp-a5c38-default-rtdb.firebaseio.com",
-            projectId: "taskapp-a5c38",
-            storageBucket: "taskapp-a5c38.appspot.com",
-            messagingSenderId: "1003741300959",
-            appId: "1:1003741300959:web:db7b9a06696eacf9b2016a"
-        };
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCoo0zdQQFH2vqXOS69JiVx0Sde6uhmf0Q",
+        authDomain: "taskapp-a5c38.firebaseapp.com",
+        databaseURL: "https://taskapp-a5c38-default-rtdb.firebaseio.com",
+        projectId: "taskapp-a5c38",
+        storageBucket: "taskapp-a5c38.appspot.com",
+        messagingSenderId: "1003741300959",
+        appId: "1:1003741300959:web:db7b9a06696eacf9b2016a"
+    };
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const provider = new GoogleAuthProvider();
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
 
-        const loginBtn = document.getElementById("login");
+    const loginBtn = document.getElementById("login");
 
-        loginBtn.addEventListener("click", (e) => {
-            signInWithRedirect(auth, provider);
+    loginBtn.addEventListener("click", (e) => {
+        signInWithRedirect(auth, provider);
 
-            // Get Redirect Result
+        // Get Redirect Result
 
-            getRedirectResult(auth) 
-                .then((result) => {
-                    // This gives you a Google Access Token. You can use it to access Google APIs.
-                    const credential = GoogleAuthProvider.credentialFromResult(result);
-                    const token = credential.accessToken;
+        getRedirectResult(auth)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access Google APIs.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
 
-                    // The signed-in user info.
-                    const user = result.user;
+                // The signed-in user info.
+                const user = result.user;
 
-                    // IdP data available using getAdditionalUserInfo(result)
-                    // ...
-                }).catch((error) => {
-                    // Handle Errors here.
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    // The email of the user's account used.
-                    const email = error.customData.email;
-                    // The AuthCredential type that was used.
-                    const credential = GoogleAuthProvider.credentialFromError(error);
-                    // ...
-                });
-        });
-    </script>
-                
-               <!--    <script src="https://accounts.google.com/gsi/client" async defer></script>
+                // IdP data available using getAdditionalUserInfo(result)
+                // ...
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+            });
+    });
+</script>
+
+<!--    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
              <div id="g_id_onload" data-client_id="1003741300959-79a59ennvuce6qsaij7v9los3i0riuki.apps.googleusercontent.com"
 "
@@ -201,7 +202,7 @@
                     10px;" data-theme="outline"
                     data-text="sign_in_with" data-click_listener="changeWindow();" data-redirecturi="https://fawaaz-coder.github.io/taskeasy/main.html" data-login_uri="https://fawaaz-coder.github.io/taskeasy" data-shape="rectangular" data-logo_alignment="center">
                 </div> -->
-              <!--  <script>
+<!--  <script>
                     function handleCredentialResponse(response) {
                         console.log("Encoded JWT ID token: " + response.credential);
                     }
@@ -223,16 +224,15 @@
                         { locale: "fr" }
                     );
                 </script> -->
-                
-                 <input type="submit" class="sub" id="loginBtn" onclick="auth(); changeWindow();"
-                    value="Manual Login">  
-                
-                <p>Not a user ? <a href="signup.html">Sign-Up Now</a></p>
-            </form>
-        </div>
-    </div> 
 
-    <!-- <script src="signup-login-auth.js" type="module"></script> -->
+<input type="submit" class="sub" id="loginBtn" onclick="auth(); changeWindow();" value="Manual Login">
+
+<p>Not a user ? <a href="signup.html">Sign-Up Now</a></p>
+</form>
+</div>
+</div>
+
+<!-- <script src="signup-login-auth.js" type="module"></script> -->
 
 <!--    <script type="module">
         // Import the functions you need from the SDKs you need
@@ -255,33 +255,33 @@
         const app = initializeApp(firebaseConfig);
     </script> -->
 
-    <script>
+<script>
 
-        // Swicthing to another page after successfully logging in
+    // Swicthing to another page after successfully logging in
 
-        function auth() {
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
+    function auth() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
 
-            if (email === "sample@gmail.com" && password === "a") {
-                window.location.assign("main.html");
-                alert("Login successfully");
-            }
-            else {
-                alert("Some error occurred");
-            }
+        if (email === "sample@gmail.com" && password === "a") {
+            window.location.assign("main.html");
+            alert("Login successfully");
         }
-
-        function changeWindow() {
-            if (window.location.href === "https://fawaaz-coder.github.io/taskeasy/") {
-                newWindowLocation = "https://fawaaz-coder.github.io/taskeasy/main.html";
-                window.open(newWindowLocation);
-            }
-            else {
-                alert("Error in switching page");
-            }
+        else {
+            alert("Some error occurred");
         }
-    </script> 
+    }
+
+    function changeWindow() {
+        if (window.location.href === "https://fawaaz-coder.github.io/taskeasy/") {
+            newWindowLocation = "https://fawaaz-coder.github.io/taskeasy/main.html";
+            window.open(newWindowLocation);
+        }
+        else {
+            alert("Error in switching page");
+        }
+    }
+</script>
 </body>
 
 </html>
